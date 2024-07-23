@@ -11,6 +11,7 @@ class CustomTextFormField extends StatelessWidget {
       this.textInputAction = TextInputAction.next,
       this.fontSize = 15,
       this.textHeight = 1,
+      this.verticalPadding = 15,
       this.onFieldSubmitted,
       super.key});
 
@@ -21,6 +22,7 @@ class CustomTextFormField extends StatelessWidget {
   final double fontSize;
   final double textHeight;
   final String hintText;
+  final double verticalPadding;
   final Function(String value)? onFieldSubmitted;
 
   @override

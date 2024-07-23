@@ -40,7 +40,39 @@ class QuestionWeb extends StatelessWidget {
                   hintText: '문의 제목을 입력해주세요'),
             )
           ],
-        )
+        ),
+        const SizedBox(height: 25),
+        Row(
+          children: [
+            Expanded(
+              child: QuestionWidgets.formFieldBox(
+                  context: context,
+                  web: true,
+                  label: '문의인 이름*',
+                  controller: qUtil.nameController,
+                  textInputType: TextInputType.text,
+                  hintText: "문의인 이름을 입력해주세요"),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: QuestionWidgets.formFieldBox(
+                  context: context,
+                  web: true,
+                  label: '이메일 *',
+                  controller: qUtil.nameController,
+                  textInputType: TextInputType.emailAddress,
+                  hintText: "회신받을 이메일을 남겨주세요"),
+            ),
+          ],
+        ),
+        const SizedBox(height: 25),
+        QuestionWidgets.formFieldBox(
+            context: context,
+            web: web,
+            label: label,
+            controller: controller,
+            textInputType: textInputType,
+            hintText: hintText),
       ],
     );
   }
