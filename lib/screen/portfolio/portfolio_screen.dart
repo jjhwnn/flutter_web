@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web/widgets/menu/menu.dart';
+import 'package:flutter_web/widgets/page_drawer.dart';
 import 'package:flutter_web/widgets/screen_layout_builder.dart';
 
 class PortfolioScreen extends StatefulWidget {
@@ -16,9 +17,10 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   Widget build(BuildContext context) {
     return ScreenLayoutBuilder(myBuilder: (screenModel, web, tablet, mobile) {
       return Scaffold(
+        endDrawer: PageDrawer(currentIndex: 1, tablet: tablet),
         body: Column(
           children: [
-            Menu(curruntIndex: 1, screenModel: screenModel,),
+            Menu(currentIndex: 1, screenModel: screenModel,),
           ],
         ),
       );

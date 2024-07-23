@@ -3,8 +3,8 @@ import 'package:flutter_web/util/asset_path.dart';
 import 'package:flutter_web/util/menu_util.dart';
 
 class MenuTabletAndMobile extends StatelessWidget {
-  const MenuTabletAndMobile({required this.curruntIndex,required this.tablet, super.key,});
-  final int curruntIndex;
+  const MenuTabletAndMobile({required this.currentIndex,required this.tablet, super.key,});
+  final int currentIndex;
   final bool tablet;
 
   @override
@@ -19,7 +19,7 @@ class MenuTabletAndMobile extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              MenuUtil.changeIndex(context, curruntIndex);
+              MenuUtil.changeIndex(context, currentIndex);
             },
             splashColor: Colors.transparent,
             hoverColor: Colors.transparent,
@@ -34,7 +34,7 @@ class MenuTabletAndMobile extends StatelessWidget {
           
           InkWell(
             onTap: () {
-              
+              Scaffold.of(context).openEndDrawer();
             },
             child: Padding(
               padding: EdgeInsets.all(tablet ? 20 : 16),
