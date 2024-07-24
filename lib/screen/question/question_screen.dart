@@ -5,6 +5,7 @@ import 'package:flutter_web/screen/question/widgets/question_web.dart';
 import 'package:flutter_web/screen/question/widgets/question_widgets.dart';
 import 'package:flutter_web/util/asset_path.dart';
 import 'package:flutter_web/util/question_util.dart';
+import 'package:flutter_web/util/screen_padding.dart';
 import 'package:flutter_web/widgets/common_scaffold.dart';
 import 'package:flutter_web/widgets/custom_dropdown_button.dart';
 import 'package:flutter_web/widgets/custom_text_form_field.dart';
@@ -23,10 +24,18 @@ class QuestionScreen extends StatefulWidget {
 
 class _QuestionScreenState extends State<QuestionScreen> {
   int selectedIndex = 0;
+  late VoidCallback listener = () {
+    setState(() {});
+  };
 
   @override
   void initState() {
-    QuestionUtil().initData();
+    QuestionUtil()
+      ..initData()
+      ..emailController.addListener(listener)
+      ..nameController.addListener(listener)
+      ..titleController.addListener(listener)
+      ..contentController.addListener(listener);
     super.initState();
   }
 
@@ -40,9 +49,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
   Widget build(BuildContext context) {
     return ScreenLayoutBuilder(
       myBuilder: (screenModel, web, tablet, mobile) {
+        var width = MediaQuery.of(context).size.width;
         return CommonScaffold(
             currentIndex: 3,
             screenModel: screenModel,
+            horizontalPadding: ScreenPadding.get(web, width),
             black: false,
             children: [
               Header(

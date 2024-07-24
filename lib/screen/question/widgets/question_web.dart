@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web/screen/question/widgets/question_widgets.dart';
+import 'package:flutter_web/util/my_color.dart';
 import 'package:flutter_web/util/question_util.dart';
+import 'package:flutter_web/util/text_util.dart';
+import 'package:flutter_web/widgets/custom_text_button.dart';
+import 'package:flutter_web/widgets/custom_text_form_field.dart';
 
-class QuestionWeb extends StatelessWidget {
+class QuestionWeb extends StatefulWidget {
   const QuestionWeb({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final qUtil = QuestionUtil();
+  State<QuestionWeb> createState() => _QuestionWebState();
+}
 
+class _QuestionWebState extends State<QuestionWeb> {
+
+  final qUtil = QuestionUtil();
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         const SizedBox(
@@ -26,6 +36,7 @@ class QuestionWeb extends StatelessWidget {
                 selectedIndex: qUtil.questionTypeIndex,
                 onChanged: (index) {
                   qUtil.changeQuestionType(index);
+                  setState(() {});
                 },
               ),
             ),
@@ -53,26 +64,55 @@ class QuestionWeb extends StatelessWidget {
                   textInputType: TextInputType.text,
                   hintText: "문의인 이름을 입력해주세요"),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(width: 20),
             Expanded(
               child: QuestionWidgets.formFieldBox(
                   context: context,
                   web: true,
                   label: '이메일 *',
-                  controller: qUtil.nameController,
+                  controller: qUtil.emailController,
                   textInputType: TextInputType.emailAddress,
                   hintText: "회신받을 이메일을 남겨주세요"),
             ),
           ],
         ),
         const SizedBox(height: 25),
-        // QuestionWidgets.formFieldBox(
-        //     context: context,
-        //     web: web,
-        //     label: label,
-        //     controller: controller,
-        //     textInputType: textInputType,
-        //     hintText: hintText),
+        QuestionWidgets.contentBox(context, true, qUtil.contentController),
+        const SizedBox(height: 25),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Expanded(
+              child: QuestionWidgets.dropdownBox(
+                context: context,
+                web: true,
+                label: '예산',
+                labelList: [
+                  '협의',
+                  '1000만원',
+                  '2000만원',
+                  '3000만원',
+                  '4000만원',
+                  '5000만원',
+                ],
+                selectedIndex: qUtil.questionPriceIndex,
+                onChanged: (index) {
+                  qUtil.changeQuestionType(index);
+                  setState(() {});
+                },
+              ),
+            ),
+            const Spacer(),
+            CustomTextButton(
+              label: '문의하기',
+              textStyle: TextUtil.get16(context, Colors.white),
+              size: const Size(190, 56),
+              backgroundColor: MyColor.blue40,
+              onPressed: !qUtil.checkValidation() ? null : () {},
+            )
+          ],
+        ),
+        const SizedBox(height: 100),
       ],
     );
   }

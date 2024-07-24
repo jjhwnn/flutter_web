@@ -10,12 +10,14 @@ class CommonScaffold extends StatelessWidget {
     required this.screenModel,
     required this.children,
     this.black = true,
+    this.horizontalPadding = 0,
     super.key});
 
   final int currentIndex;
   final ScreenModel screenModel;
   final List<Widget> children;
   final bool black;
+  final double horizontalPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class CommonScaffold extends StatelessWidget {
 
           Positioned.fill(
             child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
               child: Column(
                 children: children,
               ),

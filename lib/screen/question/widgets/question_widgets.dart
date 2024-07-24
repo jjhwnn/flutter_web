@@ -61,4 +61,25 @@ class QuestionWidgets {
       ],
     );
   }
+
+  static Widget contentBox(BuildContext context, bool web, TextEditingController controller) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        QuestionWidgets.contentTitle(context, web, '문의 내용 *'),
+        const SizedBox(height: 4),
+        CustomTextFormField(
+          controller: controller,
+          textInputType: TextInputType.multiline,
+          hintText: '문의 내용에 이런 내용이 포함되면 샐링잇이 빠르게 파악이 가능해요 :'
+              '\n - 서비스 구축/이용 목적'
+              '\n - 원하는 기능/강의 종류'
+              '\n - 레퍼런스 링크'
+              '\n - 상세 설명',
+          maxLines: 12,
+          textHeight: 1.5,
+        )
+      ],
+    );
+  }
 }

@@ -31,11 +31,11 @@ class CustomDropdownButton extends StatelessWidget {
             child: DropdownButton<int>(
               autofocus: false,
               elevation: 12,
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               itemHeight: height,
               dropdownColor: Colors.white,
               underline: const SizedBox(),
-              icon: Visibility(
+              icon: const Visibility(
                 visible: false,
                 child: Icon(Icons.add),
               ),

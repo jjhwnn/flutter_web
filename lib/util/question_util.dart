@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_web/util/my_validation.dart';
 
 class QuestionUtil{
 
@@ -15,8 +16,10 @@ class QuestionUtil{
   var contentController = TextEditingController();
 
   int questionTypeIndex = 0;
+  int questionPriceIndex = 0;
 
   void changeQuestionType(int index) => questionTypeIndex = index;
+  void changeQuestionPrice(int index) => questionPriceIndex = index;
 
   void initData() {
     titleController = TextEditingController();
@@ -40,4 +43,13 @@ class QuestionUtil{
     emailController.dispose();
     contentController.dispose();
   }
+
+  bool checkValidation() {
+    if(!MyValidation.isEmail(emailController.text)) return false;
+    if(!MyValidation.questionTitle(emailController.text)) return false;
+    if(!MyValidation.questionName(emailController.text)) return false;
+    if(!MyValidation.questionContent(emailController.text)) return false;
+    return true;
+  }
+
 }
