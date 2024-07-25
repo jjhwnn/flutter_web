@@ -96,7 +96,7 @@ class _QuestionWebState extends State<QuestionWeb> {
                 ],
                 selectedIndex: qUtil.questionPriceIndex,
                 onChanged: (index) {
-                  qUtil.changeQuestionType(index);
+                  qUtil.changeQuestionPrice(index);
                   setState(() {});
                 },
               ),

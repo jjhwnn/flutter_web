@@ -55,7 +55,7 @@ class CustomDropdownButton extends StatelessWidget {
               },
             ),
           ),
-          Positioned(
+          const Positioned(
               right: 10,
               top: 0,
               bottom: 0,

@@ -6,7 +6,7 @@ import 'package:flutter_web/model/screen_model.dart';
 typedef MyBuilder = Widget Function(
     ScreenModel screenModel, bool web, bool tablet, bool mobile);
 
-const double _webWidth = 1920;
+// const double _webWidth = 1920;
 const double _tabletWidth = 1024;
 const double _mobileWidth = 768;
 

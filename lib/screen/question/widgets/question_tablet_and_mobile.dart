@@ -74,7 +74,7 @@ class _QuestionTabletAndMobileState extends State<QuestionTabletAndMobile> {
           ],
           selectedIndex: qUtil.questionPriceIndex,
           onChanged: (index) {
-            qUtil.changeQuestionType(index);
+            qUtil.changeQuestionPrice(index);
             setState(() {});
           },
         ),

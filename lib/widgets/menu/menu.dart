@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web/model/screen_model.dart';
 import 'package:flutter_web/util/asset_path.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_web/util/my_color.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -57,7 +56,7 @@ class CustomTextFormField extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.zero,
               borderSide: BorderSide(width: 1, color: Colors.grey.withOpacity(0.5))),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.zero,
                   borderSide: BorderSide(width: 1, color: Colors.black)),
       ),

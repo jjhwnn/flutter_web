@@ -42,7 +42,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('quesiontScreen Build');
+    debugPrint('quesiontScreen Build');
     return ScreenLayoutBuilder(
       myBuilder: (screenModel, web, tablet, mobile) {
         var width = MediaQuery.of(context).size.width;
@@ -61,7 +61,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
               if(web)...[
                 const QuestionWeb(),
               ] else ... [
-                const QuestionTabletAndMobile(),
+               const QuestionTabletAndMobile(),
               ]
             ]);
       },
