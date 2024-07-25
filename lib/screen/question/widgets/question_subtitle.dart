@@ -47,8 +47,6 @@ class QuestionSubtitle extends StatelessWidget {
         ],
       ),
     );
-
-    return Column();
   }
 
 }

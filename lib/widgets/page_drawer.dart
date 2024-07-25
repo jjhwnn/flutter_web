@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_web/model/screen_model.dart';
 import 'package:flutter_web/util/menu_util.dart';
 import 'package:flutter_web/util/my_color.dart';
 import 'package:flutter_web/util/text_util.dart';

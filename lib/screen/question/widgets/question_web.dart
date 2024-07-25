@@ -4,7 +4,6 @@ import 'package:flutter_web/util/my_color.dart';
 import 'package:flutter_web/util/question_util.dart';
 import 'package:flutter_web/util/text_util.dart';
 import 'package:flutter_web/widgets/custom_text_button.dart';
-import 'package:flutter_web/widgets/custom_text_form_field.dart';
 
 class QuestionWeb extends StatefulWidget {
   const QuestionWeb({super.key});

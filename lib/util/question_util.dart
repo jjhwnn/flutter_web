@@ -46,9 +46,9 @@ class QuestionUtil{
 
   bool checkValidation() {
     if(!MyValidation.isEmail(emailController.text)) return false;
-    if(!MyValidation.questionTitle(emailController.text)) return false;
-    if(!MyValidation.questionName(emailController.text)) return false;
-    if(!MyValidation.questionContent(emailController.text)) return false;
+    if(!MyValidation.questionTitle(titleController.text)) return false;
+    if(!MyValidation.questionName(nameController.text)) return false;
+    if(!MyValidation.questionContent(contentController.text)) return false;
     return true;
   }
 

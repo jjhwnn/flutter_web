@@ -62,7 +62,6 @@ class Menu extends StatelessWidget {
                   MenuUtil.changeIndex(context, index);
                 },
               );
-              return Text(MenuUtil.menuList[index]);
             },
           ),
           const SizedBox(
