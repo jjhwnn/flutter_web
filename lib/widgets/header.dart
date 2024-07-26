@@ -7,6 +7,7 @@ class Header extends StatelessWidget {
     required this.title,
     required this. subTitle,
     required this.backgroundImage,
+    this.titleColor = Colors.white,
     required this.screenModel,
     super.key
   });
@@ -14,6 +15,7 @@ class Header extends StatelessWidget {
   final String title;
   final String subTitle;
   final String backgroundImage;
+  final Color titleColor;
   final ScreenModel screenModel;
 
   @override
@@ -43,11 +45,11 @@ class Header extends StatelessWidget {
               if(title.isNotEmpty)...[
                 Text(
                   title,
-                  style: TextUtil.get20(context, Colors.white).copyWith(
+                  style: TextUtil.get20(context, titleColor).copyWith(
                   fontWeight: titleFontWeight(),
                   fontSize: titleFontSize(),
-
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ],
 
