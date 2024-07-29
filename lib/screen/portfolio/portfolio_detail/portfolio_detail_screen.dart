@@ -3,7 +3,6 @@ import 'package:flutter_web/route_page.dart';
 import 'package:flutter_web/util/asset_path.dart';
 import 'package:flutter_web/util/screen_padding.dart';
 import 'package:flutter_web/util/text_util.dart';
-import 'package:flutter_web/widgets/common_scaffold.dart';
 import 'package:flutter_web/widgets/screen_layout_builder.dart';
 
 class PortfolioDetailScreen extends StatefulWidget {

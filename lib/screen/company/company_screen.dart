@@ -4,8 +4,6 @@ import 'package:flutter_web/screen/company/widgets/company_slogan.dart';
 import 'package:flutter_web/util/screen_padding.dart';
 import 'package:flutter_web/widgets/common_scaffold.dart';
 import 'package:flutter_web/widgets/header.dart';
-import 'package:flutter_web/widgets/menu/menu.dart';
-import 'package:flutter_web/widgets/page_drawer.dart';
 import 'package:flutter_web/widgets/screen_layout_builder.dart';
 
 class CompanyScreen extends StatefulWidget {
