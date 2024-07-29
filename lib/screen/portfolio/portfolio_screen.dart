@@ -82,29 +82,6 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                     );
                   },
                 ),
-
-                // [
-                //   Image.asset(
-                //     AssetPath.bird,
-                //     fit: BoxFit.cover,
-                //   ),
-                //   Image.asset(
-                //     AssetPath.butterfly,
-                //     fit: BoxFit.cover,
-                //   ),
-                //   Image.asset(
-                //     AssetPath.flutter,
-                //     fit: BoxFit.cover,
-                //   ),
-                //   Image.asset(
-                //     AssetPath.office,
-                //     fit: BoxFit.cover,
-                //   ),
-                //   Image.asset(
-                //     AssetPath.office_2,
-                //     fit: BoxFit.cover,
-                //   ),
-                // ],
               ),
               const SizedBox(height: 150),
             ]);

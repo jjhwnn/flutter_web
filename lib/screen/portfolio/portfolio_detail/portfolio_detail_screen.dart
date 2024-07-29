@@ -14,51 +14,131 @@ class PortfolioDetailScreen extends StatefulWidget {
 }
 
 class _PortfolioDetailScreenState extends State<PortfolioDetailScreen> {
+  final pageController = PageController();
+  int currentIndex = 0;
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ScreenLayoutBuilder(myBuilder: (screenModel, web, tablet, mobile) {
-      var screenWidth = MediaQuery.of(context).size.width;
-      return Padding(
-        padding: EdgeInsets.symmetric(horizontal: ScreenPadding.get(web, screenWidth)),
-        child: Scaffold(
-          body: Column(
-            children: [
-              SizedBox(
-                height: 100,
-                child: Row(
-                  children: [
-                    Text(
-                      '상세 이미지',
-                      style: TextUtil.get20(context, Colors.black),
-                    ),
-                    const Spacer(),
-                    InkWell(
-                      onTap: () {
-                        RoutePage.backPage(context);
-                      },
-                      customBorder: const CircleBorder(),
-                      child: const Padding(
-                        padding: EdgeInsets.all(14.0),
-                        child: Icon(
-                          Icons.close,
-                          size: 36,
+    return ScreenLayoutBuilder(
+      myBuilder: (screenModel, web, tablet, mobile) {
+        var screenWidth = MediaQuery.of(context).size.width;
+        return Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: ScreenPadding.get(web, screenWidth)),
+          child: Scaffold(
+            body: Column(
+              children: [
+                SizedBox(
+                  height: 100,
+                  child: Row(
+                    children: [
+                      Text(
+                        '상세 이미지',
+                        style: TextUtil.get20(context, Colors.black),
+                      ),
+                      const Spacer(),
+                      InkWell(
+                        onTap: () {
+                          RoutePage.backPage(context);
+                        },
+                        customBorder: const CircleBorder(),
+                        child: const Padding(
+                          padding: EdgeInsets.all(14.0),
+                          child: Icon(
+                            Icons.close,
+                            size: 36,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Expanded(
-                child: PageView(children: [
-                  Image.asset(AssetPath.detail1, fit: BoxFit.cover),
-                  Image.asset(AssetPath.detail1, fit: BoxFit.cover),
-                ],),
-              ),
-            ],
+                Expanded(
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: PageView(
+                          controller: pageController,
+                          onPageChanged: (value) {
+                            currentIndex = value;
+                            setState(() {});
+                          },
+                          children: [
+                            Image.asset(AssetPath.detail1, fit: BoxFit.cover),
+                            Image.asset(AssetPath.detail2, fit: BoxFit.cover),
+                          ],
+                        ),
+                      ),
+                      if (currentIndex != 0) ...[
+                        Positioned(
+                          left: 0,
+                          top: 0,
+                          bottom: 0,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  currentIndex--;
+                                  pageController.animateToPage(currentIndex,
+                                      duration:
+                                          const Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut);
+                                },
+                                child: const Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Icon(
+                                    Icons.keyboard_arrow_left_rounded,
+                                    size: 40,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                      if (currentIndex != 1) ...[
+                        Positioned(
+                          right: 0,
+                          top: 0,
+                          bottom: 0,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  currentIndex++;
+                                  pageController.animateToPage(currentIndex,
+                                      duration:
+                                          const Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut);
+                                },
+                                child: const Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Icon(
+                                    Icons.keyboard_arrow_right_rounded,
+                                    size: 40,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      );    },
+        );
+      },
     );
-
   }
 }
