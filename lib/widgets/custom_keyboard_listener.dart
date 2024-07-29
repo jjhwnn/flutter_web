@@ -43,7 +43,6 @@ class _CustomKeyboardListenerState extends State<CustomKeyboardListener> {
             end();
           }
         }
-        print('event : $event');
       },
       child: widget.child,
     );
@@ -58,10 +57,14 @@ class _CustomKeyboardListenerState extends State<CustomKeyboardListener> {
   }
 
   void home() {
-    widget.scrollController.animateTo(0, duration: duration, curve: Curves.easeInOut);
+    widget.scrollController
+        .animateTo(0, duration: duration, curve: Curves.easeInOut);
   }
 
   void end() {
-    widget.scrollController.animateTo(widget.scrollController.position.extentTotal, duration: duration, curve: Curves.easeInOut);
+    widget.scrollController.animateTo(
+        widget.scrollController.position.extentTotal,
+        duration: duration,
+        curve: Curves.easeInOut);
   }
 }

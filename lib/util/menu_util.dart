@@ -21,6 +21,9 @@ class MenuUtil {
       case 3:
         routeName = RoutePage.question;
         break;
+      case 4:
+        routeName = RoutePage.portfolioDetail;
+        break;
     }
 
     RoutePage.movePage(context, routeName);
